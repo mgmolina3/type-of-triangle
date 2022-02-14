@@ -13,20 +13,12 @@ String typeOfTriangle(a, b, c) {
     return "Error: One or more of the provided inputs are not integers.";
   }
 
-  if (!isWithinRange(a) || !isWithinRange(b) || !isWithinRange(c)) {
+  if (!(a >= 1 && a <= 200) || !(b >= 1 && b <= 200) || !(c >= 1 && c <= 200)) {
     return "Error: One or more of the provided inputs are not within the inclusive range [1-200].";
   }
 
-  if (!isLessThanSumOfOtherTwo(a, b, c)) {
-    return "Error: The value of $a must be less than the sum of $b + $c.";
-  }
-
-  if (!isLessThanSumOfOtherTwo(b, a, c)) {
-    return "Error: The value of $b must be less than the sum of $a + $c.";
-  }
-
-  if (!isLessThanSumOfOtherTwo(c, a, b)) {
-    return "Error: The value of $c must be less than the sum of $a + $b.";
+  if (!(a < b + c) || !(b < a + c) || !(c < a + b)) {
+    return "NotATriangle";
   }
 
   if (a == b && b == c) {
@@ -37,13 +29,5 @@ String typeOfTriangle(a, b, c) {
     return "Isosceles";
   }
 
-  return "NotATriangle";
-}
-
-bool isWithinRange(int num) {
-  return (num >= 1 && num <= 200);
-}
-
-bool isLessThanSumOfOtherTwo(int first, int second, int third) {
-  return (first < second + third);
+  return "Scalene";
 }
