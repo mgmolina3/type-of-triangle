@@ -18,22 +18,26 @@ String typeOfTriangle(a, b, c) {
   }
 
   if (!isLessThanSumOfOtherTwo(a, b, c)) {
-    return "Error: The value of $a must be less than the sum of $b and $c.";
+    return "Error: The value of $a must be less than the sum of $b + $c.";
   }
 
   if (!isLessThanSumOfOtherTwo(b, a, c)) {
-    return "Error: The value of $b must be less than the sum of $a and $c.";
+    return "Error: The value of $b must be less than the sum of $a + $c.";
   }
 
   if (!isLessThanSumOfOtherTwo(c, a, b)) {
-    return "Error: The value of $c must be less than the sum of $a and $b.";
+    return "Error: The value of $c must be less than the sum of $a + $b.";
   }
 
   if (a == b && b == c) {
     return "Equilateral";
   }
 
-  return "All good";
+  if ((a == b) || (b == c) || (a == c)) {
+    return "Isosceles";
+  }
+
+  return "NotATriangle";
 }
 
 bool isWithinRange(int num) {
