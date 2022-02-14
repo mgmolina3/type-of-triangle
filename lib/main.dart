@@ -29,6 +29,10 @@ String typeOfTriangle(a, b, c) {
     return "Error: The value of $c must be less than the sum of $a and $b.";
   }
 
+  if (a == b && b == c) {
+    return "Equilateral";
+  }
+
   return "All good";
 }
 
