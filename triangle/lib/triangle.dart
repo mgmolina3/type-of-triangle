@@ -1,9 +1,3 @@
-import 'dart:io';
-
-void main(List<String> args) {
-  stdout.writeln(typeOfTriangle(args[0], args[1], args[2]));
-}
-
 String typeOfTriangle(a, b, c) {
   // validate that a, b, and c are integers
   try {
